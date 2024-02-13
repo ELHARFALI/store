@@ -23,8 +23,8 @@ const Navbar = ({handleNavbar}) => {
           {navLinks.map((link) => {
             const { id, title, path } = link
             return (
-              <li>
-                <NavLink key={id} to={path} className='text-xl font-medium text-[#393E46]  px-4 py-2 rounded-lg'>
+              <li key={id}>
+                <NavLink to={path} className='text-xl font-medium text-[#393E46]  px-4 py-2 rounded-lg'>
                   {title}
                 </NavLink>
               </li>

@@ -1,8 +1,12 @@
-import React from 'react'
+import {Hero} from "../components"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <main className='w-full h-full'>
+      <div className=' main-width px-4 lg:px-2 2xl:px-0'>
+        <Hero />
+      </div>
+    </main>
   )
 }
 

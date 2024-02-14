@@ -53,7 +53,7 @@ export const MainContextProvider = ({ children }) => {
     
     
     return (
-        <MainContext.Provider value={{...state}}>
+        <MainContext.Provider value={{...state, fetchAllProducts}}>
             {children}
         </MainContext.Provider>
     )

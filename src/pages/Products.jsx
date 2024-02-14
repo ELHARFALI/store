@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Filters } from '../components'
+import { Card, Filters, Pagination } from '../components'
 import { useMainContext } from '../context/main_context'
 
 const Products = () => {
@@ -20,13 +20,7 @@ const Products = () => {
             )
           })}
         </div>
-        <div className='flex justify-end items-center mt-8'>
-          <button type='button' className='bg-gray-700 transition duration-200 hover:bg-gray-500 btn-sm lg:btn-md btn-primary rounded-tl-md rounded-bl-md'>prev</button>
-          <button type='button' className='bg-gray-700 transition duration-200 hover:bg-gray-500 btn-sm lg:btn-md btn-primary'>1</button>
-          <button type='button' className='bg-gray-700 transition duration-200 hover:bg-gray-500 btn-sm lg:btn-md btn-primary'>2</button>
-          <button type='button' className='bg-gray-700 transition duration-200 hover:bg-gray-500 btn-sm lg:btn-md btn-primary'>3</button>
-          <button type='button' className='bg-gray-700 transition duration-200 hover:bg-gray-500 btn-sm lg:btn-md btn-primary rounded-tr-md rounded-br-md'>next</button>
-        </div>
+        <Pagination />
       </div>
     </main>
   )

@@ -9,11 +9,15 @@ const MainContext = createContext()
 
 const initialState = {
     isLoading: false,
-    featuredProducts: []
+    featuredProducts: [],
+    all_products: [],
+    meta: [],
+    page_number: 2,
 }
 
 export const MainContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
+
 
 
     // fetch featured products
@@ -27,8 +31,24 @@ export const MainContextProvider = ({ children }) => {
         }
     }
 
+    // fetch all products
+    const fetchAllProducts = async (url) => {
+        try {
+            const response = await customFetch(url)
+            const data = response.data.data
+            const meta = response.data.meta
+            dispatch({type: 'FETCH_ALL_PRODUCTS', payload: {data}})
+            dispatch({type: 'FETCH_META', payload: {meta}})
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+
     useEffect(() => {
         fetchFeaturedProducts('/products?featured=true')
+        fetchAllProducts('/products')
     }, [])
     
     

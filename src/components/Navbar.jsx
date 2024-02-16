@@ -3,10 +3,11 @@ import { navLinks } from '../utils/data'
 import { NavLink } from 'react-router-dom'
 import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { FaBarsStaggered } from "react-icons/fa6";
-import { useMainContext } from '../context/main_context';
+import { useSingleProductContext } from '../context/singleProduct_context';
 
 
-const Navbar = ({handleNavbar}) => {
+const Navbar = ({ handleNavbar }) => {
+  const {cartAmount} = useSingleProductContext()
 
   return (
     <nav className='h-[70px] bg-[#FFFBE9]'>
@@ -31,7 +32,10 @@ const Navbar = ({handleNavbar}) => {
             )
           })}
         </ul>
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center relative'>
+          <span className='w-5 h-5 bg-[#AD8B73] text-white absolute top-[-7px] right-[-7px] rounded-full flex justify-center items-center'>
+            {cartAmount}
+          </span>
           <button type='button'>
               <MdOutlineLocalGroceryStore size={28} />
             </button>

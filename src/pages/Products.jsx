@@ -3,7 +3,16 @@ import { Card, Filters, Pagination } from '../components'
 import { useMainContext } from '../context/main_context'
 
 const Products = () => {
-  const {all_products} = useMainContext()
+  const { all_products, isLoading } = useMainContext()
+  
+
+  if (isLoading) {
+    return (
+      <main className="w-full h-[calc(100vh-106px)] flex justify-center">
+          <span className="loading loading-spinner loading-lg"></span>
+      </main>
+    )
+  }
 
   return (
     <main className='w-full h-full py-8 lg:py-10'>

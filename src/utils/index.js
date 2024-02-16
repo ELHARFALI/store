@@ -13,3 +13,6 @@ export const formatPrice = (price) => {
     return dollarAmount
 }
 
+export const amountInput = Array.from({ length: 20 }, (_, index) => {
+    return index + 1
+})

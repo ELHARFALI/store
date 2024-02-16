@@ -13,6 +13,7 @@ const initialState = {
     all_products: [],
     meta: [],
     page_number: 2,
+    single_product: []
 }
 
 export const MainContextProvider = ({ children }) => {
@@ -33,17 +34,30 @@ export const MainContextProvider = ({ children }) => {
 
     // fetch all products
     const fetchAllProducts = async (url) => {
+        dispatch({type: 'ALL_PRODUCTS_IS_LOADING'})
         try {
             const response = await customFetch(url)
             const data = response.data.data
             const meta = response.data.meta
             dispatch({type: 'FETCH_ALL_PRODUCTS', payload: {data}})
-            dispatch({type: 'FETCH_META', payload: {meta}})
+            dispatch({ type: 'FETCH_META', payload: { meta } })
+            dispatch({type: 'ALL_PRODUCTS_IS_LOADING_SUCCESSFUL'})
         } catch (error) {
             console.log(error);
         }
     }
 
+    const fetchSingleProduct = async (id) => {
+        dispatch({type: 'SINGLE_PRODUCT_IS_LOADING'})
+        try {
+            const response = await customFetch(`/products/${id}`)
+            const data = response.data.data
+            dispatch({ type: 'FETCH_SINGLE_PRODUCT', payload: { data } })
+        dispatch({type: 'SINGLE_PRODUCT_LOADING_IS_DONE'})
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     useEffect(() => {
@@ -53,7 +67,7 @@ export const MainContextProvider = ({ children }) => {
     
     
     return (
-        <MainContext.Provider value={{...state, fetchAllProducts}}>
+        <MainContext.Provider value={{...state, fetchAllProducts, fetchSingleProduct}}>
             {children}
         </MainContext.Provider>
     )

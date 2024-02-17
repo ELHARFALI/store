@@ -9,7 +9,7 @@ const FeaturedProducts = () => {
     <section className='py-10 lg:py-14 '>
       <div>
         <h1 className='text-xl lg:text-2xl xl:text-3xl font-medium'>Featured Products</h1>
-        <div className='w-full mt-2 mb-4 lg:mb-6 h-[2px] bg-black' />
+        <div className='w-full mt-3 mb-4 lg:mb-6 h-[2px] bg-black' />
         <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {featuredProducts.map((item) => {
             const { id, attributes } = item

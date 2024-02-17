@@ -19,6 +19,11 @@ export const navLinks = [
         title: 'Products',
         path: '/products'
     },
+    {
+        id: 4,
+        title: 'Cart',
+        path: '/cart'
+    },
 ]
 
 export const heroImages = [

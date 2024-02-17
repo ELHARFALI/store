@@ -19,7 +19,7 @@ const SingleProduct = () => {
   const [currentColor, setCurrentColor] = useState(attributes?.colors[0] || null)
   const [amount, setAmount] = useState(1)
 
-  console.log(amount);
+  
 
   const handleColor = (e) => {
     setCurrentColor(e.target.value)
@@ -79,7 +79,7 @@ const SingleProduct = () => {
                 <button
                   type="button"
                   className="btn btn-active bg-gray-800 text-white btn-md px-6 hover:bg-gray-600  text-lg"
-                  onClick={() => addProduct(id, attributes?.title, amount, attributes?.price, attributes?.company, currentColor )}
+                  onClick={() => addProduct(id, attributes?.title, attributes?.image, amount, attributes?.price, attributes?.company, currentColor )}
                 >
                   Add To Bag
                   </button>

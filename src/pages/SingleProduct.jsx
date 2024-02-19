@@ -30,6 +30,11 @@ const SingleProduct = () => {
     setAmount(parseInt(e.target.value))
   }
 
+
+  
+
+
+
   if (isLoading) {
     return (
       <main className="w-full h-[calc(100vh-106px)] flex justify-center">
